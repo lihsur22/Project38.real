@@ -28,18 +28,28 @@ class Game {
             form = new Form();
             form.display();
         }
-        b1 = createSprite(200,200,40,40);
-        b2 = createSprite(350,200,40,40);
-        b3 = createSprite(500,200,40,40);
-        b4 = createSprite(650,200,40,40);
+        b1 = createSprite(200,by,40,40);
+        b2 = createSprite(350,by,40,40);
+        b3 = createSprite(500,by,40,40);
+        b4 = createSprite(650,by,40,40);
+        b1.depth = 100000;
+        b2.depth = 100000;
+        b3.depth = 100000;
+        b4.depth = 100000;
         breaks = [b1,b2,b3,b4];
     }
 
     play() {
         form.hideAll();
-        textSize(20);
+
+        background(backImg,displayHeight/2,displayWidth/2);
+
+        textSize(40);
         textAlign(CENTER);
-        text(Math.round(player.waitTime / 30) + " Left Till Next Hit",displayWidth/2,displayHeight/2 - 400);
+        strokeWeight(2);
+        stroke("red");
+        fill("red");
+        text(Math.round(player.waitTime / 30) + " Left Till Next Hit",displayWidth/2,displayHeight/2 - 200);
 
         Player.playerInfo();
         var index = 0;
@@ -47,33 +57,40 @@ class Game {
 
         if(allPlayer !== undefined)
         {
-            for(var plr in allPlayer){
+            var x = 220
+
+            for(var plr in allPlayer)
+            {
                 index = index + 1;
+                x = x + 300;
                 
                 if(allPlayer[plr].break == wallTough)
                 {
-                    breaks[index - 1].y = 100;
+                    breaks[index - 1].y = (by - 100);
                 }
                 if(allPlayer[plr].break == (2 * wallTough))
                 {
-                    breaks[index - 1].y = 0;
+                    breaks[index - 1].y = (by - 200);
                 }
                 if(allPlayer[plr].break == (3 * wallTough))
                 {
-                    breaks[index - 1].y = -100;
+                    breaks[index - 1].y = (by - 300);
                 }
                 if(allPlayer[plr].break == (4 * wallTough))
                 {
-                    breaks[index - 1].y = -200;
+                    breaks[index - 1].y = (by - 400);
+                    this.update(2);
                 }
+
+                breaks[index - 1].x = x;
 
                 if(index === player.index + 1)
                 {
+                    w = new Walls(breaks[index - 1].x, by);
+                    w.display();
                     breaks[index - 1].shapeColor = "red";
                     camera.position.x = displayWidth/2;
                     camera.position.y = breaks[index - 1].y;
-                    w = new Walls(breaks[index - 1].x, 200);
-                    w.display();
                 }
             }
         }
@@ -88,14 +105,7 @@ class Game {
                 player.waitTime += 30 * (Math.round(random(1,5)));
             }
         }
-        if(player.waitTime > 0)
-        {
-            player.waitTime = player.waitTime - 1;
-        }
-        if(player.break == (4 * wallTough))
-        {
-            this.update(2);
-        }
+        //if(player.break == (4 * wallTough)){}
         drawSprites();
     }
 

@@ -1,8 +1,9 @@
 var walls, w1, w2, w3, w4, w5, w;
+var breaks, b1, b2, b3, b4, by = 200;
 var player, playC, allPlayer;
-var breaks, b1, b2, b3, b4;
 var db, gameState = 0;
 var form, game;
+var backImg;
 
 function setup(){
   canvas = createCanvas(displayWidth-20, displayHeight-20);
@@ -11,6 +12,8 @@ function setup(){
   game = new Game();
   game.getState();
   game.start();
+
+  backImg = loadImage("images/bg.png");
 }
 
 function draw(){
@@ -26,5 +29,9 @@ function draw(){
   if(gameState ==2)
   {
     game.end();
+  }
+  if(player.waitTime > 0)
+  {
+    player.waitTime = player.waitTime - 1;
   }
 }
