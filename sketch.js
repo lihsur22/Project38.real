@@ -19,6 +19,8 @@ function setup(){
   game = new Game();
   game.getState();
   game.start();
+  game.update(0);
+  player.updateCount(0);
 }
 
 function draw(){
