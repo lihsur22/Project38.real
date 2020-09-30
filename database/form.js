@@ -15,11 +15,11 @@ class Form {
     {
         var title = createElement('h1');
         title.html('Break The Wall');
-        title.position((displayWidth/2) - 50,0);
+        title.position((displayWidth/2) - 80,0);
 
-        this.input.position((displayWidth/2) - 50,(displayHeight/2) - 400);
+        this.input.position((displayWidth/2) - 50,(displayHeight/2) - 200);
     
-        this.button.position((displayWidth/2) + 30,(displayHeight/2) - 300);
+        this.button.position((displayWidth/2) + 30,(displayHeight/2) - 100);
         this.button.mousePressed(() => {
             this.input.hide();
             this.button.hide();
@@ -31,7 +31,7 @@ class Form {
             player.updateCount(playC);
             player.update();
 
-            this.greet.html('hello ' + player.name);
+            this.greet.html('Waiting For Other Players ' + player.name);
             this.greet.position((displayWidth/2) + 30,(displayHeight/4));
         });
     }

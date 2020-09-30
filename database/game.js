@@ -53,7 +53,7 @@ class Game {
         strokeWeight(2);
         stroke("red");
         fill("red");
-        text(Math.round(player.waitTime / 30) + " Left Till Next Hit",displayWidth/2,displayHeight/2 - 200);
+        text(Math.round(player.waitTime / 30) + " Left Till Next Hit",displayWidth/2,displayHeight/2 - 800);
 
         Player.playerInfo();
         var index = 0;

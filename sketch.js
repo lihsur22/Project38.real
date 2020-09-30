@@ -1,6 +1,6 @@
+var backImg, playImg, chosenImg, wallImg;
 var breaks, b1, b2, b3, b4, by = 200;
 var walls, w1, w2, w3, w4, w5, w;
-var backImg, playImg, chosenImg;
 var player, playC, allPlayer;
 var db, gameState = 0;
 var form, game;
@@ -9,6 +9,7 @@ function preload(){
   backImg = loadImage("images/bg.png");
   playImg = loadImage("images/pick.png");
   chosenImg = loadImage("images/chosPick.png");
+  wallImg = loadImage("images/wall.png");
 }
 
 function setup(){

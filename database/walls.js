@@ -10,6 +10,18 @@ class Walls {
         w2.visible = false;
         w3.visible = false;
         w4.visible = false;
+        w1.addImage(wallImg);
+        w2.addImage(wallImg);
+        w3.addImage(wallImg);
+        w4.addImage(wallImg);
+        w1.scale = 0.1;
+        w2.scale = 0.1;
+        w3.scale = 0.1;
+        w4.scale = 0.1;
+        w1.lifetime = 1;
+        w2.lifetime = 1;
+        w3.lifetime = 1;
+        w4.lifetime = 1;
     }
 
     display(){
