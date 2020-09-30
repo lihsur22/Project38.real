@@ -1,9 +1,14 @@
-var walls, w1, w2, w3, w4, w5, w;
 var breaks, b1, b2, b3, b4, by = 200;
+var walls, w1, w2, w3, w4, w5, w;
 var player, playC, allPlayer;
 var db, gameState = 0;
+var backImg, playImg;
 var form, game;
-var backImg;
+
+function preload(){
+  backImg = loadImage("images/bg.png");
+  playImg = loadImage("images/pick.png");
+}
 
 function setup(){
   canvas = createCanvas(displayWidth-20, displayHeight-20);
@@ -12,8 +17,6 @@ function setup(){
   game = new Game();
   game.getState();
   game.start();
-
-  backImg = loadImage("images/bg.png");
 }
 
 function draw(){

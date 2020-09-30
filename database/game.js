@@ -32,10 +32,14 @@ class Game {
         b2 = createSprite(350,by,40,40);
         b3 = createSprite(500,by,40,40);
         b4 = createSprite(650,by,40,40);
-        b1.depth = 100000;
-        b2.depth = 100000;
-        b3.depth = 100000;
-        b4.depth = 100000;
+        b1.addImage(playImg);
+        b2.addImage(playImg);
+        b3.addImage(playImg);
+        b4.addImage(playImg);
+        b1.scale = 0.2;
+        b2.scale = 0.2;
+        b3.scale = 0.2;
+        b4.scale = 0.2;
         breaks = [b1,b2,b3,b4];
     }
 
