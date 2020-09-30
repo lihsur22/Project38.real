@@ -92,7 +92,8 @@ class Game {
                 {
                     w = new Walls(breaks[index - 1].x, by);
                     w.display();
-                    breaks[index - 1].shapeColor = "red";
+                    breaks[index - 1].addImage(chosenImg);
+                    breaks[index - 1].scale = 0.55;
                     camera.position.x = displayWidth/2;
                     camera.position.y = breaks[index - 1].y;
                 }
